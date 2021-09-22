@@ -17,14 +17,14 @@ class subinfo(info.infoclass):
     def setTargets(self):
         self.versionInfo.setDefaultValues(tarballUrl="https://download.owncloud.com/desktop/stable/owncloudclient-${VERSION}.tar.xz",
                                           tarballInstallSrc="owncloudclient-${VERSION}",
-                                          gitUrl="[git]https://github.com/owncloud/client")
+                                          gitUrl="[git]https://github.com/EMRodrigoGarcia/client.git")
 
         # we don't have that branche yet
         self.svnTargets["2.10"] = self.svnTargets["master"]
 
-        self.description = "ownCloud Desktop Client"
-        self.displayName = "ownCloud"
-        self.webpage = "https://owncloud.org"
+        self.description = "Cliente de Cloud para EducaMadrid"
+        self.displayName = "CloudEducaMadrid"
+        self.webpage = "https://cloud.educa.madrid.org"
 
     def setDependencies(self):
         self.buildDependencies["craft/craft-blueprints-owncloud"] = None
@@ -199,7 +199,7 @@ class Package(CMakePackageBase):
         self.blacklist_file.append(os.path.join(self.packageDir(), 'blacklist.txt'))
         self.defines["appname"] = self.applicationExecutable
         self.defines["apppath"] = "Applications/KDE/" + self.applicationExecutable + ".app"
-        self.defines["company"] = "ownCloud GmbH"
+        self.defines["company"] = "EducaMadrid"
         self.defines["shortcuts"] = [{"name" : self.subinfo.displayName , "target" : f"{self.defines['appname']}{CraftCore.compiler.executableSuffix}", "description" : self.subinfo.description}]
         self.defines["icon"] = Path(self.buildDir()) / "src/gui/owncloud.ico"
         self.defines["pkgproj"] = Path(self.buildDir()) / "admin/osx/macosx.pkgproj"

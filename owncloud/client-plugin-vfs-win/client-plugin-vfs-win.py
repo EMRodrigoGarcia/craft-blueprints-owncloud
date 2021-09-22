@@ -13,8 +13,8 @@ class subinfo(info.infoclass):
             del self.targets[ver]
             self.svnTargets[ver] = self.versionInfo.format("ssh://git@gitea.owncloud.services:2222/client/client-plugin-vfs-win.git|${VERSION_MAJOR}.${VERSION_MINOR}|", ver)
 
-        self.description = "ownCloud Desktop Client - virtual file systme plugin"
-        self.webpage = "https://owncloud.org"
+        self.description = "Cliente de Cloud para EducaMadrid"
+        self.webpage = "https://cloud.educa.madrid.org"
 
     def setDependencies(self):
         self.buildDependencies["craft/craft-blueprints-owncloud"] = "default"
